@@ -7,6 +7,7 @@ Este proyecto es un ejemplo de un CRUD con Spring Boot que utiliza Java 17, JWT 
 
 - Java 17
 - Spring Boot 3.3
+- Apache Maven 3.9.X
 
 ## Instalación
 
