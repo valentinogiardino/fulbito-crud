@@ -67,5 +67,3 @@ La aplicación viene con un usuario pre-cargado para pruebas:
 - **username:** test
 - **password:** 12345
 
-
-```
