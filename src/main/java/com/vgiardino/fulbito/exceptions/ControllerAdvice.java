@@ -72,8 +72,8 @@ public class ControllerAdvice {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorDTO> handleBadCredentialsException(BadCredentialsException ex){
-        ErrorDTO error = ErrorDTO.builder().codigo("400").mensaje("Credenciales Incorrectas").build();
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        ErrorDTO error = ErrorDTO.builder().codigo("401").mensaje("Credenciales Incorrectas").build();
+        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(AccessDeniedException.class)
