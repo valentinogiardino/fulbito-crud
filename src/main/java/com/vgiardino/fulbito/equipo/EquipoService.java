@@ -10,6 +10,5 @@ public interface EquipoService {
     Equipo create(Equipo equipo);
     Equipo update(long id, Equipo equipo);
     void delete(long id);
-    void deleteAll(List<Long> listIds);
 
 }

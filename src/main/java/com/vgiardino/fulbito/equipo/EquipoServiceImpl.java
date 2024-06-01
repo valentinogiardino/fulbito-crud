@@ -63,8 +63,5 @@ public class EquipoServiceImpl implements EquipoService{
         this.equipoRepository.delete(equipo);
     }
 
-    @Override
-    public void deleteAll(List<Long> listIds) {
-        this.equipoRepository.deleteAllById(listIds);
-    }
+
 }
