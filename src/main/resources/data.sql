@@ -1,11 +1,13 @@
-
+/*
 -- Crear la tabla para almacenar los equipos
-/*CREATE TABLE IF NOT EXISTS Equipos (
+
+CREATE TABLE IF NOT EXISTS Equipos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     liga VARCHAR(50) NOT NULL,
     pais VARCHAR(50) NOT NULL
-    );*/
+    );
+*/
 
 
 
@@ -35,3 +37,6 @@ INSERT INTO Equipos (nombre, liga, pais) VALUES
 ('Besiktas JK', 'Süper Lig', 'Turquía'),
 ('SSC Napoli', 'Serie A', 'Italia'),
 ('Atlético Madrid', 'La Liga', 'España');
+
+
+
