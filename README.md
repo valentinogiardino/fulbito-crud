@@ -13,7 +13,7 @@ Este proyecto es un ejemplo de un CRUD con Spring Boot que utiliza Java 17, JWT 
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/tu-usuario/tu-repositorio.git](https://github.com/valentinogiardino/fulbito-crud.git
 cd tu-repositorio
 ```
 
