@@ -2,16 +2,13 @@ package com.vgiardino.fulbito.security.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.Collections;
 import java.util.Set;
 
 @Data
-public class EditUsuario {
-    @NotNull(message = "id obligatorio")
-    private int id;
+public class UsuarioReqUpdateDto {
     @NotBlank(message = "nombre obligatorio")
     private String nombre;
     @NotBlank(message = "nombre de usuario obligatorio")

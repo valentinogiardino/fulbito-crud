@@ -13,23 +13,23 @@ import java.util.List;
 @Tag(name = "Usuarios")
 public interface UsuarioController {
 
-    @GetMapping("/getAll")
+    @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     ResponseEntity<List<UsuarioResponseDto>> getAll();
 
-    @PostMapping("/create")
+    @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     ResponseEntity<UsuarioResponseDto> add(@Valid @RequestBody UsuarioReqCreateDto usuarioReqCreateDto);
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<Mensaje> delete(@RequestParam int id);
+    ResponseEntity<?> delete(@PathVariable int id);
 
-    @GetMapping("/getById")
-    ResponseEntity<UsuarioResponseDto> getById(@RequestParam int id);
+    @GetMapping("/{id}")
+    ResponseEntity<UsuarioResponseDto> getById(@PathVariable int id);
     @GetMapping("/getByUsername")
     ResponseEntity<UsuarioResponseDto> getByUsername(@RequestParam String username);
 
-    @PutMapping("/update")
-    ResponseEntity<UsuarioResponseDto> update(@Valid @RequestBody EditUsuario editUsuario);
+    @PutMapping("/{id}")
+    ResponseEntity<UsuarioResponseDto> update(@PathVariable int id, @Valid @RequestBody UsuarioReqUpdateDto usuarioReqUpdateDto);
 }

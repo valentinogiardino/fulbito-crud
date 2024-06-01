@@ -13,5 +13,4 @@ public class UsuarioResponseDto {
     private String nombreUsuario;
     private String email;
     private List<String> roles;
-    private int organizacionId;
 }

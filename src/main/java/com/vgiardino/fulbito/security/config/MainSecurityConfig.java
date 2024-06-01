@@ -1,4 +1,4 @@
-package com.vgiardino.fulbito.security;
+package com.vgiardino.fulbito.security.config;
 
 import com.vgiardino.fulbito.security.jwt.JwtEntryPoint;
 import com.vgiardino.fulbito.security.jwt.JwtTokenFilter;
@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class MainSecurity {
+public class MainSecurityConfig {
 
     @Autowired
     UserDetailsServiceImpl userDetailsServiceImpl;

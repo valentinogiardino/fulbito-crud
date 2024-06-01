@@ -1,7 +1,7 @@
 package com.vgiardino.fulbito.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vgiardino.fulbito.security.dto.Mensaje;
+import com.vgiardino.fulbito.exceptions.ErrorDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,11 +22,13 @@ public class JwtEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest req, HttpServletResponse res, AuthenticationException e) throws IOException, ServletException {
         logger.error("fail en el método commence");
-        //res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "no autorizado");
-        Mensaje mensaje = new Mensaje("Token inválido o vacío");
+        ErrorDTO errorDTO = ErrorDTO.builder()
+                .codigo("401")
+                .mensaje("Invalid Token")
+                .build();
         res.setContentType("application/json");
         res.setStatus(HttpStatus.UNAUTHORIZED.value());
-        res.getWriter().write(new ObjectMapper().writeValueAsString(mensaje));
+        res.getWriter().write(new ObjectMapper().writeValueAsString(errorDTO));
         res.getWriter().flush();
         res.getWriter().close();
     }

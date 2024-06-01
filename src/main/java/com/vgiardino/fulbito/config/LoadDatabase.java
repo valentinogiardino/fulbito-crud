@@ -4,7 +4,7 @@ import com.vgiardino.fulbito.security.dto.UsuarioReqCreateDto;
 import com.vgiardino.fulbito.security.entity.Rol;
 import com.vgiardino.fulbito.security.enums.RolNombre;
 import com.vgiardino.fulbito.security.repository.RolRepository;
-import com.vgiardino.fulbito.security.service.UsuarioService;
+import com.vgiardino.fulbito.security.service.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ public class LoadDatabase {
     private final EquipoRepository equipoRepository;
 */
     private final RolRepository rolRepository;
-    private final UsuarioService usuarioService;
+    private final UsuarioServiceImpl usuarioService;
 /*
     COMENTADO DEBIDO A QUE LA CONSIGNA PIDE GENERAR LOS EQUIPOS INICIALES USANDO UN SCRIPT SQL
 

@@ -2,12 +2,10 @@ package com.vgiardino.fulbito.security.controller;
 
 import com.vgiardino.fulbito.security.dto.*;
 import com.vgiardino.fulbito.security.entity.Usuario;
-import com.vgiardino.fulbito.security.service.UsuarioService;
-import jakarta.validation.Valid;
+import com.vgiardino.fulbito.security.service.UsuarioServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UsuarioControllerImpl implements UsuarioController{
 
-    private final UsuarioService usuarioService;
+    private final UsuarioServiceImpl usuarioService;
     private final UsuarioMapper usuarioMapper;
 
     @Override
@@ -27,14 +25,15 @@ public class UsuarioControllerImpl implements UsuarioController{
 
 
     @Override
-    public ResponseEntity<UsuarioResponseDto> add(@Valid @RequestBody UsuarioReqCreateDto usuarioReqCreateDto){
+    public ResponseEntity<UsuarioResponseDto> add(UsuarioReqCreateDto usuarioReqCreateDto){
         Usuario usuario = this.usuarioService.add(usuarioReqCreateDto);
-        return new ResponseEntity<>(this.usuarioMapper.toUsuarioResponseDto(usuario), HttpStatus.OK);
+        return new ResponseEntity<>(this.usuarioMapper.toUsuarioResponseDto(usuario), HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<Mensaje> delete(int id) {
-        return new ResponseEntity<>(this.usuarioService.delete(id), HttpStatus.OK);
+    public ResponseEntity<?> delete(int id) {
+        this.usuarioService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
@@ -51,8 +50,8 @@ public class UsuarioControllerImpl implements UsuarioController{
     }
 
     @Override
-    public ResponseEntity<UsuarioResponseDto> update(EditUsuario editUsuario) {
-        Usuario usuario = this.usuarioService.update(editUsuario);
+    public ResponseEntity<UsuarioResponseDto> update(int id, UsuarioReqUpdateDto usuarioReqUpdateDto) {
+        Usuario usuario = this.usuarioService.update(id, usuarioReqUpdateDto);
         return new ResponseEntity<>(this.usuarioMapper.toUsuarioResponseDto(usuario), HttpStatus.OK);
     }
 }
