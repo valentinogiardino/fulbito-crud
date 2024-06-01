@@ -1,17 +1,18 @@
 package com.vgiardino.fulbito.equipo.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 
 @Data
 @Builder
 public class EquipoReqCreateDto {
-    @NotBlank(message = "El campo 'nombre' es obligatorio")
+    @NotBlank(message = "La solicitud es invalida")
     private String nombre;
-    @NotBlank(message = "El campo 'liga' es obligatorio")
+    @NotBlank(message = "La solicitud es invalida")
     private String liga;
-    @NotBlank(message = "El campo 'pais' es obligatorio")
+    @NotBlank(message = "La solicitud es invalida")
     private String pais;
 }

@@ -5,6 +5,7 @@ import com.vgiardino.fulbito.equipo.dtos.EquipoReqCreateDto;
 import com.vgiardino.fulbito.equipo.dtos.EquipoReqUpdateDto;
 import com.vgiardino.fulbito.equipo.dtos.EquipoResponseDto;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EquipoControllerImpl implements EquipoController{
 
     private final EquipoService equipoService;

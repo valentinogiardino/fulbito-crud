@@ -1,12 +1,16 @@
 package com.vgiardino.fulbito.equipo;
 
+import com.vgiardino.fulbito.exceptions.RepositoryException;
+import com.vgiardino.fulbito.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EquipoServiceImpl implements EquipoService{
 
     private final EquipoRepository equipoRepository;
@@ -19,7 +23,7 @@ public class EquipoServiceImpl implements EquipoService{
     @Override
     public Equipo getById(long id) {
         return this.equipoRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(()-> new ResourceNotFoundException("Equipo no encontrado"));
     }
 
     @Override
@@ -29,7 +33,12 @@ public class EquipoServiceImpl implements EquipoService{
 
     @Override
     public Equipo create(Equipo equipo) {
-        return this.equipoRepository.save(equipo);
+        try{
+            return this.equipoRepository.save(equipo);
+
+        }catch (Exception ex){
+            throw new RepositoryException("400", HttpStatus.BAD_REQUEST, "La solicitud es invalida");
+        }
     }
 
     @Override
@@ -40,13 +49,18 @@ public class EquipoServiceImpl implements EquipoService{
         if(existingEquipo.equals(updatedEquipo)) {
             return existingEquipo;
         }
+        try{
+            return this.equipoRepository.save(updatedEquipo);
 
-        return this.equipoRepository.save(updatedEquipo);
+        }catch (Exception ex){
+            throw new RepositoryException("400", HttpStatus.BAD_REQUEST, "La solicitud es invalida");
+        }
     }
 
     @Override
     public void delete(long id) {
-        this.equipoRepository.deleteById(id);
+        Equipo equipo = this.getById(id);
+        this.equipoRepository.delete(equipo);
     }
 
     @Override

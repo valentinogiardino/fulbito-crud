@@ -3,7 +3,7 @@ package com.vgiardino.fulbito.equipo.dtos;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 @Data
 @Builder
