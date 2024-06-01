@@ -4,7 +4,11 @@ import com.vgiardino.fulbito.equipo.Equipo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+/**
+ * Esta clase implementa la interface EquipoMapper para mapear un Equipo a sus dtos y viceversa
+ * @author Valentino Giardino
+ * @version 16/06/2023
+ */
 @Component
 public class EquipoMapperImpl implements EquipoMapper{
 

@@ -11,11 +11,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+/**
+ * Clase representa que implementa los métodos definidos en EquipoController
+ * para gestionar las peticiones Http referidas a Equipos
+ * author: Valentino Giardino
+ * version: 01/06/2024
+ */
 @RestController
 @RequiredArgsConstructor
 public class EquipoControllerImpl implements EquipoController{
 
+    //Inyección de dependencia con la notación @RequiredArgsConstructor
     private final EquipoService equipoService;
     private final EquipoMapper equipoMapper;
     @Override
