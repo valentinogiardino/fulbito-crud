@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Esta clase implementa la interface EquipoMapper para mapear un Equipo a sus dtos y viceversa
  * @author Valentino Giardino
- * @version 16/06/2023
+ * @version 01/06/2024
  */
 @Component
 public class EquipoMapperImpl implements EquipoMapper{
