@@ -9,10 +9,10 @@ import lombok.Data;
 @Data
 @Builder
 public class EquipoReqCreateDto {
-    @NotBlank(message = "La solicitud es invalida")
+    @NotBlank(message = "El campo 'nombre' es obligatorio")
     private String nombre;
-    @NotBlank(message = "La solicitud es invalida")
+    @NotBlank(message = "El campo 'liga' es obligatorio")
     private String liga;
-    @NotBlank(message = "La solicitud es invalida")
+    @NotBlank(message = "El campo 'pais' es obligatorio")
     private String pais;
 }
