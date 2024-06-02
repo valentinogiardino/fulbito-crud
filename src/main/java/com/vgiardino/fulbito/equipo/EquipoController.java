@@ -31,7 +31,7 @@ public interface EquipoController {
     @Operation(summary = "Obtiene un Equipo por id", description = "Devuelve la información del equipo correspondiente al ID proporcionado. ")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Equipo encontrado exitosamente"),
-            @ApiResponse(responseCode = "404", description = "Not found - Equipo no encontrado")
+            @ApiResponse(responseCode = "404", description = "Equipo no encontrado")
     })
     @GetMapping("/{id}")
     ResponseEntity<EquipoResponseDto> getById(@PathVariable
